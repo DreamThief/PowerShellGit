@@ -1,10 +1,12 @@
-﻿
-function new-DTgenuser {
+﻿function new-DTgenuser {
 
     param([int]$NumberToDo = 1)
 
+## Primary variables.
     $date = Get-Date -Format dd-MMM-yyyy
     $server = "dreamthief.co"
+    $ouPath = "OU=TestUSers,DC=dreamthief,DC=co" 
+#   $creds = Get-Credential
 
     for ($npcindex = 1; $npcindex -le $NumberToDo; $npcindex++) {
     $firstName = get-content ".\files\firstNames.txt" | random
@@ -15,6 +17,8 @@ function new-DTgenuser {
     $displayName = $surname + ", " + $firstName
     $password = "Start12345" | ConvertTo-SecureString -AsPlainText -Force
 
+##This still is not working, everything comes back as Idowa
+## If the -eq $true is removed, everything comes back as new york.
     if ($city = "New York" -eq $true ) {$state = "New York"} 
      ElseIf ($city = "Boston" -eq $true ) {$state = "Msachussets"} 
      ElseIf ($city -eq "Los Angeles" -eq $true) {$state = "California"}
@@ -30,11 +34,12 @@ function new-DTgenuser {
      else {$state = "Idowa"}
 
 
-
+## Screen output
     Write-host "I will try and create a new account with this username: $username"
     Write-host "The display name will be: $displayName"
     
-#    $creds = Get-Credential
+
+## Actual work being done.
 
 new-ADUser -Server $server `
     -Credential $creds `
@@ -50,14 +55,14 @@ new-ADUser -Server $server `
         -AccountPassword $Password `
         -ChangePasswordAtLogon $True `
         -Enabled $True `
-        -Path "OU=TestUSers,DC=dreamthief,DC=co" 
-     }
+        -Path $ouPath
+         }
      }
 
 
     <# 
-    [-MobilePhone    <string>] 
-[-Office <string>] 
+
+[-MobilePhone    <string>] 
 [-OfficePhone <string>] 
 [-Organization <string>]
    
