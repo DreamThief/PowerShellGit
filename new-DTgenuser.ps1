@@ -16,21 +16,26 @@
     $userName = $firstName + "." + $surName
     $displayName = $surname + ", " + $firstName
     $password = "Start12345" | ConvertTo-SecureString -AsPlainText -Force
+    $telephoneNumber = new-phoneNumber
+    $mobile = new-phoneNumber
+    $department = get-content ".\files\departments.txt" | random
+    $title = get-content ".\files\titles.txt" | random
+    
 
 ##This still is not working, everything comes back as Idowa
 ## If the -eq $true is removed, everything comes back as new york.
-    if ($city = "New York" -eq $true ) {$state = "New York"} 
-     ElseIf ($city = "Boston" -eq $true ) {$state = "Msachussets"} 
-     ElseIf ($city -eq "Los Angeles" -eq $true) {$state = "California"}
-     ElseIf ($city = "Chicago" -eq $true ) {$state = "Illinois"}
-     ElseIf ($city = "Houston" -eq $true) {$state = "Texas"}
-     ElseIf ($city = "Philadelphia" -eq $true) {$state = "Pennsylvania"}
-     ElseIf ($city = "Phoenix" -eq $true) {$state = "Arizona"}
-     ElseIf ($city = "San Antonio" -eq $true) {$state = "Texas"}
-     ElseIf ($city = "San Digeo" -eq $true) {$state = "California"}
-     ElseIf ($city = "Dallas" -eq $true) {$state = "Texas"}
-     ElseIf ($city = "San Jose" -eq $true) {$state = "California"}
-     ElseIf ($city = "Austin" -eq $true) {$state = "Texas"}
+    if ($city -eq "New York"  ) {$state = "New York"} `
+     ElseIf ($city -eq "Boston"  ) {$state = "Msachussets"} `
+     ElseIf ($city -eq "Los Angeles" ) {$state = "California"} `
+     ElseIf ($city -eq "Chicago"  ) {$state = "Illinois"} `
+     ElseIf ($city -eq "Houston" ) {$state = "Texas"} `
+     ElseIf ($city -eq "Philadelphia" ) {$state = "Pennsylvania"} `
+     ElseIf ($city -eq "Phoenix" ) {$state = "Arizona"} `
+     ElseIf ($city -eq "San Antonio" ) {$state = "Texas"} `
+     ElseIf ($city -eq "San Digeo" ) {$state = "California"} `
+     ElseIf ($city -eq "Dallas" ) {$state = "Texas"} `
+     ElseIf ($city -eq "San Jose" ) {$state = "California"} `
+     ElseIf ($city -eq "Austin" ) {$state = "Texas"} `
      else {$state = "Idowa"}
 
 
@@ -44,26 +49,23 @@
 new-ADUser -Server $server `
     -Credential $creds `
         -samaccountname $username `
+        -UserPrincipalName $userName `
         -name $displayName `
         -givenName $firstName `
         -surname $surName `
         -displayName $displayName `
         -description $description `
+        -mobile $mobile `
+        -officePhone $telephoneNumber `
         -city $city `
         -office $city `
         -state $state `
+        -department $department `
+        -title $title `
         -AccountPassword $Password `
         -ChangePasswordAtLogon $True `
         -Enabled $True `
-        -Path $ouPath
+        -Path $ouPath 
+        
          }
      }
-
-
-    <# 
-
-[-MobilePhone    <string>] 
-[-OfficePhone <string>] 
-[-Organization <string>]
-   
-    #>
