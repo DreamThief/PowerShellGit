@@ -1,6 +1,6 @@
 ﻿function new-DTuser {
     $server = "dreamthief.co"
-    $firstName  = read-host -Prompt "Input First name" -promptcolor green
+    $firstName  = read-host -Prompt "Input First name" # -promptcolor green
     $surName  = read-host -Prompt "Input Last name"
     $description = read-host "Enter a description"
     $city = read-host "Enter a city"
