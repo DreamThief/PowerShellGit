@@ -8,6 +8,7 @@ Until I learn a better way, I will use this readme as a TOC.
 get-DellTagInfo.ps1
 new-DTgenUser.ps1
 new-DTuser.ps1
+new-phonenumber.ps1
 
 
 ##Powershell modules (may contain the above functions)
