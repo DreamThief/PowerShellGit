@@ -1,0 +1,7 @@
+Windows Server 2012 R2 Datacenter
+Windows 10
+Windows 7
+Windows XP
+Windows Server 2003
+Windows Server 2008
+Windows Server 2008 R2
