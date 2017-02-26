@@ -1,8 +1,12 @@
 ﻿function get-CORPcompinfo {
+
 param ([string]$lt)
+
+    $server = "dreamthief.co"
+
     Try 
     {
-Get-ADComputer $lt -properties `
+Get-ADComputer -server $server -Credential $creds $lt -properties `
      enabled, description, dnshostname, objectclass, location, managedby, ipv4address, whencreated, whenchanged,CanonicalName, OperatingSystem, OperatingSystemVersion, pwdlastset, lastlogon | 
      select enabled, dnshostname, description, `
      @{Name="Last Known IP address";Expression={ $psitem.ipv4address  }}, `
