@@ -1,5 +1,5 @@
 ﻿<######################################################
-If the workstain you run this from is already on the desired domain, 
+If the workstation you run this from is already on the desired domain, 
 you can remark out $creds and $server. Also remove them from the $userinfo line
 
 If you are checkign accounts agains a different domain (other than one your workstation is joined to)
