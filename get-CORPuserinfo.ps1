@@ -7,13 +7,17 @@ you can leave them in.
 
 ######################################################>
 
+#Global variables are defined
+#. .\modules\global.ps1
+. .\c:\scripts\global.ps1
+
 
 function get-corpUserinfo {
     param (
             [string]$user
             )
  #   $creds = Get-Credential
-    $server = "dreamthief.co"
+
     Try {
       $userinfo = ( Get-ADUser -server $server -Credential $creds -identity $user -properties *  )# `
       <#passwordexpired, description, office, proxyaddresses, employeeType,UserPrincipalName, homedirectory, mdbusedefaults,
