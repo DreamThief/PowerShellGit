@@ -5,10 +5,19 @@ Until I learn a better way, I will use this readme as a TOC.
 
 ##  Powershell functions
 =====
-get-DellTagInfo.ps1
-new-DTgenUser.ps1
-new-DTuser.ps1
-new-phonenumber.ps1
+get-DellTagInfo.ps1 (searches Dell warranty information not AD specific)
+
+new-DTgenUser.ps1 (generates X number of users in an AD environment)
+
+new-DTuser.ps1 (generates a single new user in an AD environment)
+
+new-phonenumber.ps1 (generates random fake phone number)
+
+new-gencorpcomputer.ps1 (generate x number of new computers in an AD environment)
+
+get-corpcomputerinfo.ps1 (looks up AD information on a specific hostname)
+
+get-corpuserinfo.ps1 (looks up AD user info)
 
 
 ##Powershell modules (may contain the above functions)
