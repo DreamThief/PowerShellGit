@@ -9,7 +9,7 @@ you can leave them in.
 
 #Global variables are defined
 #. .\modules\global.ps1
-. .\c:\scripts\global.ps1
+. c:\scripts\global.ps1
 
 
 function get-corpUserinfo {
@@ -19,7 +19,7 @@ function get-corpUserinfo {
  #   $creds = Get-Credential
 
     Try {
-      $userinfo = ( Get-ADUser -server $server -Credential $creds -identity $user -properties *  )# `
+      $userinfo = ( Get-ADUser -server $glserver -Credential $creds -identity $user -properties *  )# `
       <#passwordexpired, description, office, proxyaddresses, employeeType,UserPrincipalName, homedirectory, mdbusedefaults,
        mdboverquotalimit, mdbstoragequota, msExchHideFromAddressLists, `
       passwordlastset, telephoneNumber, mobile, passwordneverexpires, whenCreated, AccountExpirationDate, homeMDB, `
