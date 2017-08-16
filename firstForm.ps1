@@ -1,4 +1,6 @@
-﻿#ERASE ALL THIS AND PUT XAML BELOW between the @" "@
+﻿#https://foxdeploy.com/series/learning-gui-toolmaking-series/
+
+#ERASE ALL THIS AND PUT XAML BELOW between the @" "@
 $inputXML = @"
 <Window x:Class="WpfApplication2.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
