@@ -16,11 +16,24 @@
 #. .\modules\global.ps1
 . c:\scripts\global.ps1
 
+Function Get-FileName($initialDirectory)
+{
+    [System.Reflection.Assembly]::LoadWithPartialName("System.windows.forms") | Out-Null
+    
+    $OpenFileDialog = New-Object System.Windows.Forms.OpenFileDialog
+    $OpenFileDialog.initialDirectory = $initialDirectory
+    $OpenFileDialog.filter = "ISO (*.iso)| *.iso"
+    $OpenFileDialog.ShowDialog() | Out-Null
+    $OpenFileDialog.filename
+}
+
+$iso = get-filename $glisodir
+
 new-vmx -vmxname My2012 -type server2012 -Firmware BIOS -Path $glVMdir |
     Set-VMXSize -size M|
 	New-vmxscsidisk -newdisksize 20GB -newdiskname SCSI0_0 |
 	add-vmxscsidisk -lun 0 -controller 0 |
-	connect-vmxcdromimage -iso $glisodir |
+	connect-vmxcdromimage -iso $iso |
 	set-vmxnetworkadapter -adapter 0 -ConnectionType bridged -adaptertype e1000e |
 	start-vmx -nowait
 
