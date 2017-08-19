@@ -1,5 +1,6 @@
 # PowerShell for personal and professional use
 [![DreamThief](https://avatars0.githubusercontent.com/u/1320297?v=4&s=140)](http://www.dreamthief.com)
+
 Please pardon my git-ese, it has been awhile and I am working this from the windows side instead of linux (where I learned git)
 
 Until I learn a better way, I will use this readme as a TOC.
@@ -8,7 +9,6 @@ Until I learn a better way, I will use this readme as a TOC.
 >                           -me
 
 ##  Powershell functions
-=====
 | Function | Description | Status |
 | ------ | ------ | ------ |
 |get-DellTagInfo.ps1 |searches Dell warranty information not AD specific| Non functional
@@ -22,7 +22,7 @@ Until I learn a better way, I will use this readme as a TOC.
 
 ## Powershell modules (may contain the above functions)
 
-=========================
+
 | Module | Description | Status |
 | ------ | ------ | ------ |
 Uh still working on these.
