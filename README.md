@@ -28,7 +28,7 @@ Until I learn a better way, I will use this readme as a TOC.
 | ------ | ------ | ------ |
 Uh still working on these.
 
-Thank you to dillinger.io  and [jbt]( https://jbt.github.io/markdown-editor) the awesome Markdown editors.
+Thank you to [dillinger.io](http://dillinger.io)  and [jbt]( https://jbt.github.io/markdown-editor) the awesome Markdown editors.
 
 # MIT License
 
