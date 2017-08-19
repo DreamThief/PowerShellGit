@@ -1,32 +1,37 @@
 # PowerShell for personal and professional use
+[![DreamThief](https://avatars0.githubusercontent.com/u/1320297?v=4&s=140)](http://www.dreamthief.com)
 Please pardon my git-ese, it has been awhile and I am working this from the windows side instead of linux (where I learned git)
 
 Until I learn a better way, I will use this readme as a TOC.
 
+> I am a great speller and a terrible typist.
+>                           -me
+
 ##  Powershell functions
 =====
-get-DellTagInfo.ps1 (searches Dell warranty information not AD specific)
-
-new-DTgenUser.ps1 (generates X number of users in an AD environment)
-
-new-DTuser.ps1 (generates a single new user in an AD environment)
-
-new-phonenumber.ps1 (generates random fake phone number)
-
-new-gencorpcomputer.ps1 (generate x number of new computers in an AD environment)
-
-get-corpcomputerinfo.ps1 (looks up AD information on a specific hostname)
-
-get-corpuserinfo.ps1 (looks up AD user info)
+| Function | Description | Status |
+| ------ | ------ | ------ |
+|get-DellTagInfo.ps1 |searches Dell warranty information not AD specific| Non functional
+|new-DTgenUser.ps1 |generates X number of users in an AD environment| Functional |
+|new-DTuser.ps1 |generates a single new user in an AD environment| Functional |
+|new-phonenumber.ps1 |generates random fake phone number| Functional |
+|new-gencorpcomputer.ps1 |generate x number of new computers in an AD environment| Functional |
+|get-corpcomputerinfo.ps1 |looks up AD information on a specific hostname| Functional |
+|get-corpuserinfo.ps1 |looks up AD user info| Functional |
 
 
-##Powershell modules (may contain the above functions)
+## Powershell modules (may contain the above functions)
 
 =========================
+| Module | Description | Status |
+| ------ | ------ | ------ |
+Uh still working on these.
 
-#MIT License
+Thank you to dillinger.io for the awesome Markdown editor.
 
-Copyright (c) 2016-2017 David Casteel
+# MIT License
+
+Copyright (c) 2016-2017 David D. Casteel
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -45,3 +50,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+#######################
