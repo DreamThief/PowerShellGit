@@ -6,18 +6,19 @@ Please pardon my git-ese, it has been awhile and I am working this from the wind
 Until I learn a better way, I will use this readme as a TOC.
 
 > I am a great speller and a terrible typist.
->                           -me
+> 
+> -me
 
 ##  Powershell functions
 | Function | Description | Status |
 | ------ | ------ | ------ |
-|get-DellTagInfo.ps1 |searches Dell warranty information not AD specific| Non functional
+|get-DellTagInfo.ps1 |searches Dell warranty information not AD specific| Non functional :-1: |
 |new-DTgenUser.ps1 |generates X number of users in an AD environment| Functional |
 |new-DTuser.ps1 |generates a single new user in an AD environment| Functional |
 |new-phonenumber.ps1 |generates random fake phone number| Functional |
 |new-gencorpcomputer.ps1 |generate x number of new computers in an AD environment| Functional |
 |get-corpcomputerinfo.ps1 |looks up AD information on a specific hostname| Functional |
-|get-corpuserinfo.ps1 |looks up AD user info| Functional |
+|get-corpuserinfo.ps1 |looks up AD user info| Functional :+1: |
 
 
 ## Powershell modules (may contain the above functions)
@@ -27,7 +28,7 @@ Until I learn a better way, I will use this readme as a TOC.
 | ------ | ------ | ------ |
 Uh still working on these.
 
-Thank you to dillinger.io for the awesome Markdown editor.
+Thank you to dillinger.io  and [jbt]( https://jbt.github.io/markdown-editor) the awesome Markdown editors.
 
 # MIT License
 
