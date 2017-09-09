@@ -1,0 +1,15 @@
+db01 ", "$($Date.ToString('dd-MMM-yyyy HH:mm:ss'))" -colour green, yellow
+db02 ", "User: ", "$env:USERDOMAIN\$env:UserName" -colour green, red, cyan 
+db03 ", "Hostname: ", "$env:computerName" -colour green, red, cyan
+db04 ", "OS: ", "$os_name" -colour green, red, cyan 
+db05 ", "Powershell ", "$shell_info" -colour green, red, cyan 
+db06 ", "System Volume: ", "$disk_size" -colour green, red, cyan -NoNewline 
+db07 New-PercentageBar -DrawBar -Value (([math]::round($ReturnedValues.Logical_Disk.Size/1GB)-[math]::round($ReturnedValues.Logical_Disk.FreeSpace/1GB))) -MaxValue ([math]::round($ReturnedValues.Logical_Disk.Size/1GB)); "`r"  
+db08 ", "Memory: ", "$Memory_Size`t"   -Colour Green, red, cyan -NoNewline
+db09         New-PercentageBar -DrawBar -Value (([math]::round($ReturnedValues.Operating_System.TotalVisibleMemorySize/1KB))-([math]::round($ReturnedValues.Operating_System.FreePhysicalMemory/1KB))) -MaxValue ([math]::round($ReturnedValues.Operating_System.TotalVisibleMemorySize/1KB)); "`r" 
+db10 ", "Current Load: ", "$Current_Load", "%" -Colour Green, red, cyan, cyan  
+db11 ", "Processes: ", "$Process_Count" -Colour Green, red, cyan
+db12 ", "CPU: ", "$CPU_info "  -Colour Green, red, cyan 
+db13 ", "UPtime: ", "$Uptime"  -Colour Green, red ,cyan
+db14 ", "Kernel: ", "$Kernel_info"  -Colour Green, red, cyan 
+ 
