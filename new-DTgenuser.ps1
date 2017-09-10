@@ -24,48 +24,51 @@
 
 ##This still is not working, everything comes back as Idowa
 ## If the -eq $true is removed, everything comes back as new york.
-    if ($city -eq "New York"  ) {$state = "New York"} `
-     ElseIf ($city -eq "Boston"  ) {$state = "Msachussets"} `
-     ElseIf ($city -eq "Los Angeles" ) {$state = "California"} `
-     ElseIf ($city -eq "Chicago"  ) {$state = "Illinois"} `
-     ElseIf ($city -eq "Houston" ) {$state = "Texas"} `
-     ElseIf ($city -eq "Philadelphia" ) {$state = "Pennsylvania"} `
-     ElseIf ($city -eq "Phoenix" ) {$state = "Arizona"} `
-     ElseIf ($city -eq "San Antonio" ) {$state = "Texas"} `
-     ElseIf ($city -eq "San Digeo" ) {$state = "California"} `
-     ElseIf ($city -eq "Dallas" ) {$state = "Texas"} `
-     ElseIf ($city -eq "San Jose" ) {$state = "California"} `
-     ElseIf ($city -eq "Austin" ) {$state = "Texas"} `
+    if ($city -eq "New York"  ) {$state = "New York"} 
+     ElseIf ($city -eq "Boston"  ) {$state = "Msachussets"} 
+     ElseIf ($city -eq "Los Angeles" ) {$state = "California"} 
+     ElseIf ($city -eq "Chicago"  ) {$state = "Illinois"} 
+     ElseIf ($city -eq "Houston" ) {$state = "Texas"} 
+     ElseIf ($city -eq "Philadelphia" ) {$state = "Pennsylvania"} 
+     ElseIf ($city -eq "Phoenix" ) {$state = "Arizona"} 
+     ElseIf ($city -eq "San Antonio" ) {$state = "Texas"} 
+     ElseIf ($city -eq "San Digeo" ) {$state = "California"} 
+     ElseIf ($city -eq "Dallas" ) {$state = "Texas"} 
+     ElseIf ($city -eq "San Jose" ) {$state = "California"} 
+     ElseIf ($city -eq "Austin" ) {$state = "Texas"} 
      else {$state = "Idowa"}
 
 
 ## Screen output
     Write-host "I will try and create a new account with this username: $username"
     Write-host "The display name will be: $displayName"
-    
+
+## SPLAT Parameters 
+$props = @{
+            'Server' = $server;
+            'Samaccountname' = $username;
+            'UserPrincipalName' = $userName;
+            'name' = $displayName;
+            'givenName' = $firstName;
+            'surname' = $surName;
+            'displayName' = $displayName;
+            'description' = $description;
+            'mobile' = $mobile;
+            'officePhone' = $telephoneNumber;
+            'city' = $city;
+            'office' = $city;
+            'state' = $state;
+            'department' = $department;
+            'title' = $title;
+            'AccountPassword' = $Password;
+            'ChangePasswordAtLogon' = $True;
+            'Enabled' = $True;
+            'Path' = $ouPath 
+            }  
 
 ## Actual work being done.
 
-new-ADUser -Server $server `
-    -Credential $creds `
-        -samaccountname $username `
-        -UserPrincipalName $userName `
-        -name $displayName `
-        -givenName $firstName `
-        -surname $surName `
-        -displayName $displayName `
-        -description $description `
-        -mobile $mobile `
-        -officePhone $telephoneNumber `
-        -city $city `
-        -office $city `
-        -state $state `
-        -department $department `
-        -title $title `
-        -AccountPassword $Password `
-        -ChangePasswordAtLogon $True `
-        -Enabled $True `
-        -Path $ouPath 
+new-ADUser @props
         
          }
      }
