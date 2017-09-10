@@ -1,5 +1,17 @@
 ﻿## iex ((New-Object System.Net.WebClient).DownloadString('http://dreamthief.us/CoreServerSetup03.ps1'))
 
+
+<#
+TODO:
+    Timezone check 
+        Set-TimeZone -Name "Pacific Standard Time"
+    Time Check
+        NTP Servers
+    WindowsUpdates
+
+
+#>
+
 clear-host
 
 ##Banner
