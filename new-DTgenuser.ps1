@@ -67,7 +67,7 @@ $props = @{
             }  
 
 ## Actual work being done.
-
+# May need to add in $creds
 new-ADUser @props
         
          }
