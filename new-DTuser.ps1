@@ -1,26 +1,49 @@
 ﻿function new-DTuser {
-    $server = "dreamthief.co"
-    $firstName  = read-host -Prompt "Input First name" # -promptcolor green
-    $surName  = read-host -Prompt "Input Last name"
-    $description = read-host "Enter a description"
-    $city = read-host "Enter a city"
+    #$server = "dreamthief.co"
+    #$firstName  = read-host -Prompt "Input First name" # -promptcolor green
+    #$surName  = read-host -Prompt "Input Last name"
+    #$description = read-host "Enter a description"
+    #$city = read-host "Enter a city"
+    $firstname = 'David'
+    $surName = 'Casteel'
+    $description = 'TheMan'
+    $city = 'Austin'
+    $ouPath = "OU=TestUSers,DC=dreamthief,DC=co" 
+    $password = "Start12345" | ConvertTo-SecureString -AsPlainText -Force
+    
     $userName = $firstName + "." + $surName
     $displayName = $surname + ", " + $firstName
     Write-host "I will try and create a new account with this username: $username"
     Write-host "The display name will be: $displayName"
     
-    $creds = Get-Credential
+    #$creds = Get-Credential
 
-new-ADUser -Server $server `
-    -Credential $creds `
-        -name $userName `
-        -givenName $firstName `
-        -surname $surName `
-        -displayName $displayName `
-        -description $description `
-        -city $city
+
+    $args = @{
+        #'Server'               = $server ;
+        #'Credential'           = $creds ;
+        'name'                  = $userName ;
+        'givenName'             = $firstName ;
+        'surname'               = $surName ;
+        'displayName'           = $displayName ;
+        'description'           = $description ;
+        'city'                  = $city ;
+        'ChangePasswordAtLogon' = $false ;
+        'Enabled'               = $true ;
+        'PasswordNeverExpires'  = $true ;
+        'accountpassword'       = $password
+        'Path'                  = $ouPath
     }
 
+
+
+    new-ADUser @args
+
+}
+cls
+
+write-host "Ready" -ForegroundColor Green
+write-host ""
 <#
 all the listed properties for an AD User object
 [-Name] <string> 
