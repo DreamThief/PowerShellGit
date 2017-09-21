@@ -141,9 +141,10 @@ write-host ""
 
 ###Allow ping
 Write-Host "Allow ping through the firewall" -ForegroundColor Green
-$FWM=new-object -com hnetcfg.fwmgr
-$pro=$fwm.LocalPolicy.CurrentProfile
-$pro.icmpsettings.AllowInboundEchoRequest=$true
+#$FWM=new-object -com hnetcfg.fwmgr
+#$pro=$fwm.LocalPolicy.CurrentProfile
+#$pro.icmpsettings.AllowInboundEchoRequest = $true
+Enable-NetFirewallRule -DisplayGroup "File and Printer Sharing"
 Write-Host "Ping now allowed" -ForegroundColor Green
 Write-Host "Ping was my best friend in school" -ForegroundColor Green
 write-host ""
