@@ -143,4 +143,6 @@ Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
 Write-Host "RDP Access complete" -ForegroundColor Green
 write-host ""
 
+choco install vmware-tools -y
+
 shutdown /r
