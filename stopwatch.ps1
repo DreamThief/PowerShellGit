@@ -17,3 +17,13 @@ write-host ""
 write-host "Ths took "$StopWatch.elapsed.hours" hours "$StopWatch.elapsed.minutes" minutes and "$StopWatch.elapsed.seconds" seconds "
 write-host ""
 write-host "Ths took $($StopWatch.elapsed.hours) hours $($StopWatch.elapsed.minutes) minutes and $($stopWatch.elapsed.seconds) seconds "
+
+
+### Basics
+$StopWatch = [Diagnostics.Stopwatch]::StartNew()
+
+<#
+add cod you want to time here
+#>
+$StopWatch.Stop()	
+write-host "Ths took $($StopWatch.elapsed.hours) hours $($StopWatch.elapsed.minutes) minutes and $($stopWatch.elapsed.seconds) seconds "
