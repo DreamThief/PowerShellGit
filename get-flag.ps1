@@ -16,4 +16,4 @@ write-host "                                    " -BackgroundColor red
 
     
 #  ■  ▄  ▀
-                             
+# ok                             
