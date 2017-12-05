@@ -12,8 +12,9 @@ write-host "                                    " -BackgroundColor white
 write-host "                                    " -BackgroundColor red
 write-host "                                    " -BackgroundColor white
 write-host "                                    " -BackgroundColor red
+write-host ""
+write-host ""
+write-host ""
 }
 
-    
-#  ■  ▄  ▀
-# ok                             
+                                
