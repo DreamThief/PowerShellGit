@@ -19,3 +19,6 @@ $display = get-content .\files\ztest.txt
 $display 
 
  }
+
+ # https://ss64.com/ps/copy-item.html
+
