@@ -23,13 +23,17 @@ Add-WindowsFeature AD-Domain-Services
 
 Import-Module ADDSDeployment
 
+#This will jsut show you what it looks like when executed, it will not actually run the command
 write-host "Install-ADDSForest" @domain
 
-BrokenArrow1!!
+# Just unremark the below line to make it all work. 
+#Install-ADDSForest @domain
 
+#Really should not keep a password here
+# [password]
 
+##After words
 Install-WindowsFeature rsat-remoteaccess rsat-adds
-
 
 Import-module servermanager ; Get-WindowsFeature | where-object {$_.Installed -eq $True} | format-list DisplayName
 
