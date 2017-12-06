@@ -13,6 +13,9 @@ copy-item .\files\oldFile.txt .\files\ztest.txt
 else{
 write-host "Hey dumbass, you did not do anything!" -ForegroundColor Cyan
 }
- 
+
+$display = get-content .\files\ztest.txt
+
+$display 
 
  }
