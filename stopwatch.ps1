@@ -23,7 +23,7 @@ write-host "Ths took $($StopWatch.elapsed.hours) hours $($StopWatch.elapsed.minu
 $StopWatch = [Diagnostics.Stopwatch]::StartNew()
 
 <#
-add cod you want to time here
+add code you want to time here
 #>
 $StopWatch.Stop()	
 write-host "Ths took $($StopWatch.elapsed.hours) hours $($StopWatch.elapsed.minutes) minutes and $($stopWatch.elapsed.seconds) seconds "
