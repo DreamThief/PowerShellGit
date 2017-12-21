@@ -9,7 +9,7 @@ Start-UdDashboard -AutoReload -port 8080 -Content {
 
 $Page1 = New-UDPage -Name "Home" -Icon home -Content { New-UDCard }    
 $Page2 = New-UDPage -Name "Links" -Icon link -Content { New-UDCard }    
-New-UDDashboard @colors -Pages @($Page1, $Page2)
+#New-UDDashboard @colors -Pages @($Page1, $Page2)
 
 
 
@@ -128,10 +128,13 @@ New-UDDashboard @colors -Pages @($Page1, $Page2)
                 New-UdRow {
                     New-UdColumn -Size 12 {
                         New-UdGrid -Title "Processes"  @colors -Headers @("Name", "ID", "Working Set", "CPU") -Properties @("Name", "Id", "WorkingSet", "CPU") -AutoRefresh -RefreshInterval 60 -Endpoint {
-                            Get-Process | Out-UDGridData
+                            Get-Process | sort cpu | Out-UDGridData
                         }
                     }
                 }
+                
+            
+            
             }
         }
     }
