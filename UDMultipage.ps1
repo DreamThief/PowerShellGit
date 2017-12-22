@@ -1,7 +1,45 @@
 ﻿Start-UdDashboard -AutoReload -port 8080 -Content {
 
+$Page1 = New-UDPage -Name "home" -Icon home -Content {
+New-UDRow {
 
-$Page1 = New-UDPage -Name "Home" -Icon home -Content {
+    New-UDColumn -Size 9 {
+
+        New-UDRow {
+
+            New-UDColumn -Size 3 {
+
+                New-UDCard @colors {"use the &#xf0c9;"}
+
+            }
+
+            New-UDColumn -Size 3 {
+
+                New-UDCard
+
+            }
+
+            New-UDColumn -Size 6 {
+
+                New-UDCard
+
+            }
+
+        }
+
+    }
+
+    New-UDColumn -Size 3 {
+
+        New-UDCard
+
+    }
+
+}
+}
+
+
+$Page2 = New-UDPage -Name "Processes" -Icon navicon -Content {
 
                 New-UdRow {
                     New-UdColumn -Size 3  -Content {
@@ -45,7 +83,7 @@ $Page1 = New-UDPage -Name "Home" -Icon home -Content {
 
 
 
-$Page2 = New-UDPage -Name "Links" -Icon link -Content { 
+$Page3 = New-UDPage -Name "Drives" -Icon link -Content { 
 
                New-UdRow {
                     New-UdColumn -Size 12 -Content {
@@ -67,6 +105,6 @@ $Page2 = New-UDPage -Name "Links" -Icon link -Content {
 
 
     
-New-UDDashboard @colors -Pages @($Page1, $Page2)
+New-UDDashboard @colors -Pages @($Page1, $Page2, $page3)
 
 }
