@@ -13,12 +13,14 @@ $Page2 = New-UDPage -Name "Links" -Icon link -Content { New-UDCard }
 
 
 
-    New-UdDashboard -Title "Server Performance Dashboard" @colors -Content {
+    New-UdDashboard -Title "Server Performance Dashboard" @colors  -Content {
         New-UdRow {
             New-UdColumn -Size 6 -Content {
                 New-UdRow {
                     New-UdColumn -Size 12 -Content {
                         New-UdTable -Title "Server Information" -Headers @(" ", " ") @colors -Endpoint {
+    
+
                             @{
                                 'Computer Name' = $env:COMPUTERNAME
                                 'Operating System' = (Get-CimInstance -ClassName Win32_OperatingSystem).Caption
