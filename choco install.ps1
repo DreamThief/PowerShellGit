@@ -1,9 +1,8 @@
-﻿
-$progs = 'conemu' , 
+﻿iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+#base programs for all machines
+$progs = @( 
+            'conemu' , 
             'chocolateygui' , 
-            'hyper' , 
-            'rdmfree' , 
-            'rdcman' , 
             'windowspowershell' , 
             'notepadplusplus' , 
             'avastfreeantivirus' , 
@@ -16,12 +15,8 @@ $progs = 'conemu' ,
             'adobeshockwaveplayer' , 
             'windirstat' , 
             '7zip' , 
-            'putty' , 
-            'winscp' , 
-            'trillian' , 
             'vlc' , 
             'audacity' , 
-            'thunderbird' , 
             'foxitreader' , 
             'skype' , 
             'spotify' , 
@@ -32,29 +27,49 @@ $progs = 'conemu' ,
             'dotnet4.7' , 
             'jdk8' , 
             'spybot' , 
-            'visualstudiocode' , 
-            'vscode-powershell' , 
-            'git' , 
-            'github' , 
             'opera' , 
             'zoom' , 
             'visioviewer2016' , 
             'silverlight' , 
             'sysinternals' , 
             'procexp' , 
-            'vmwareworkstation' , 
             'itunes' , 
-            'evernote' , 
             'evernote-chrome' , 
             'isorecorder' , 
-            'superputty' , 
-            'nomachine' , 
-            'kindle' , 
-            'sendtokindle' , 
+            'kindle' ,
+            'slack' , 
+            'sendtokindle'  
+
+            )
+
+#programs for dev machines
+$dev = @(
+            'visualstudiocode' , 
+            'vscode-powershell' , 
+            'git' , 
+            'github',
             'openssh' , 
-            'git-credential-winstore'
+            'git-credential-winstore',
+            'hyper' , 
+            'rdmfree' , 
+            'rdcman' ,
+            'superputty' , 
+            'putty' , 
+            'winscp' 
+        )
 
-choco install $progs
+#programs for personal needs
+$extend = @(
+            'vmwareworkstation' ,
+            'nomachine' ,
+            'trillian' , 
+            'evernote' , 
+            'thunderbird' 
+           )
 
 
-#choco install conemu chocolateygui hyper rdmfree rdcman windowspowershell notepadplusplus avastfreeantivirus firefox googlechrome adobeair flashplayerplugin jre8 javaruntime adobeshockwaveplayer windirstat 7zip putty winscp trillian vlc audacity thunderbird foxitreader skype spotify dropbox evernote itunes keepass2 dotnet4.7 jdk8 spybot visualstudiocode vscode-powershell git github opera zoom visioviewer2016 silverlight sysinternals procexp vmwareworkstation itunes evernote evernote-chrome isorecorder superputty nomachine kindle sendtokindle openssh git-credential-winstore
+
+
+choco install $progs $dev $extend
+
+
