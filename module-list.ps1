@@ -2,6 +2,7 @@
 
 $moduleList = @(
                 'AzureRM', 
+                'AzureRmStorageTable',
                 'posh-git' ,
                 'vmxtoolkit'
                 'EnhancedHTML2' ,
