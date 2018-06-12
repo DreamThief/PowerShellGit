@@ -2,7 +2,7 @@
 
 
 <#
-TODO:
+# TODO:
     Timezone check 
         Set-TimeZone -Name "Pacific Standard Time"
     Time Check
@@ -34,10 +34,10 @@ $subnet = read-host "What is the Subnet? Slash format e.g. 24 or 27 or 16"
 
 if ($subnet -eq 30)	{$mask = "255.255.255.252"}
 elseif	($subnet -eq 29)	{$mask = "255.255.255.248"}	
-elseif ($subnet -eq 28)	{$mask = "255.255.255.240"}
+elseif  ($subnet -eq 28)	{$mask = "255.255.255.240"}
 elseif	($subnet -eq 27)	{$mask = "255.255.255.224"}	
-elseif	($subnet -eq 26)	{$mask = "255.255.255.192"	}
-elseif	($subnet -eq 25)	{$mask = "255.255.255.128"	}
+elseif	($subnet -eq 26)	{$mask = "255.255.255.192"}
+elseif	($subnet -eq 25)	{$mask = "255.255.255.128"}
 elseif	($subnet -eq 24)	{$mask = "255.255.255.0"}
 elseif	($subnet -eq 23)	{$mask = "255.255.254.0"}	
 elseif	($subnet -eq 22)	{$mask = "255.255.252.0"}	
@@ -120,10 +120,15 @@ write-host ""
 write-host ""
 
 ##Set up the network
+# ! find the eth0 interface index and make it into a variable
+$netIFI = Get-NetIPConfiguration -InterfaceAlias Ethernet0
+$netifi = $netifi.interfaceindex
+$netifi
+##
 Write-Host "Setting up the network" -ForegroundColor Green
 Disable-NetAdapterBinding -Name "Ethernet0" -ComponentID ms_tcpip6
-New-NetIPAddress -InterfaceIndex 12 -IPAddress $ipaddr -PrefixLength $subnet -DefaultGateway $gateway
-Set-DnsClientServerAddress -InterfaceIndex 12 -ServerAddresses ("$dns", "8.8.8.8")
+New-NetIPAddress -InterfaceIndex $netifi -IPAddress $ipaddr -PrefixLength $subnet -DefaultGateway $gateway
+Set-DnsClientServerAddress -InterfaceIndex $netifi -ServerAddresses ("$dns", "8.8.8.8")
 Write-Host "Network setup complete" -ForegroundColor Green
 write-host ""
 
@@ -143,6 +148,7 @@ Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
 Write-Host "RDP Access complete" -ForegroundColor Green
 write-host ""
 
-choco install vmware-tools -y
+# * It is assumed you have already installed the vmwware tools manually.
+# choco install vmware-tools -y
 
-shutdown /r
+shutdown /r /t 5
