@@ -5,10 +5,10 @@
 $domain = @{
     'CreateDnsDelegation'  = $false ;
     'DatabasePath'         = "C:\Windows\NTDS" ;
-    'DomainMode'           = "Win2012R2" 
+    'DomainMode'           = "Win2016" ;   #This can also be "7"
     'DomainName'           = "dreamthief.co" ;
     'DomainNetbiosName'    = "DREAMTHIEF" ;
-    'ForestMode'           = "Win2012R2" ;
+    'ForestMode'           = "Win2016" ;  #This can also be "7"
     'InstallDns'           = $true ;
     'LogPath'              = "C:\Windows\NTDS" ;
     'NoRebootOnCompletion' = $false ;
@@ -33,14 +33,14 @@ write-host "Install-ADDSForest" @domain
 # [password]
 
 ##After words
-Install-WindowsFeature rsat-remoteaccess rsat-adds
+#Install-WindowsFeature rsat-remoteaccess rsat-adds
 
-Import-module servermanager ; Get-WindowsFeature | where-object {$_.Installed -eq $True} | format-list DisplayName
+#Import-module servermanager ; Get-WindowsFeature | where-object {$_.Installed -eq $True} | format-list DisplayName
 
 
-$check = Read-Host "What are you looking for?"
+#$check = Read-Host "What are you looking for?"
 
-(Get-WindowsFeature -name $check).Installed 
+#(Get-WindowsFeature -name $check).Installed 
 
 
 
