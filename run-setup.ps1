@@ -1,4 +1,4 @@
-## iex ((New-Object System.Net.WebClient).DownloadString('http://dreamthief.us/CoreServerSetup03.ps1'))
+## iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/DreamThief/PowerShellGit/master/run-setup.ps1'))
 
 
 <#
@@ -53,6 +53,39 @@ $gateway = read-host "What is the gateway address?"
 write-host ""
 $dns = read-host "What is the DNS? More can be added after final config if needed"
 
+write-host ""
+write-host "Please Select your Timezone"
+write-host "If you Timezone is not listed, you can manually change it later."
+write-host ""
+write-host "If timezone is CURRENTLY in daylight time (Summer time), "
+write-host "  Please choose the daylight option"
+write-host ""
+write-host ""
+write-host "1 Eastern Standard Time EST" 
+write-host "2 Eastern Daylight Time EDT"
+write-host "3 Central Standard Time CST"
+write-host "4 Central Daylight Time CDT"
+write-host "5 Mountain Standard Time MST"
+write-host "6 Mountain Daylight Time MDT"
+write-host "7 Pacific Standard Time PST"
+write-host "8 Pacific Daylight Time PST"
+write-host ""
+write-host ""
+
+$timeZone = Read-Host "From the choices above, enter the number of you timezone (e.g. 1 or 2 etc)"
+
+if	($timezone -eq 1)	{$tz = "Eastern Standard Time"}
+elseif	($timezone -eq 2)	{$tz = "Eastern Daylight Time"}
+elseif	($timezone -eq 3)	{$tz = "Central Standard Time"}
+elseif	($timezone -eq 4)	{$tz = "Central Daylight Time"}
+elseif	($timezone -eq 5)	{$tz = "Mountain Standard Time"}
+elseif	($timezone -eq 6)	{$tz = "Mountain Daylight Time"}
+elseif	($timezone -eq 7)	{$tz = "Pacific Standard Time"}
+elseif	($timezone -eq 8)	{$tz = "Pacific Daylight Time"}
+
+write-host ""
+
+
 ### Write out the input
 write-host ""
 Write-host "The new hostname will be:    " -NoNewline -foregroundcolor yellow
@@ -65,8 +98,8 @@ Write-host "     The gateway will be:    " -nonewline -ForegroundColor yellow
 write-host $gateway -ForegroundColor red
 Write-host "  The DNS Server will be:    "-nonewline -ForegroundColor yellow
 write-host $dns -ForegroundColor red
-write-host ""
-write-host ""
+write-host "    The Timezone will be:    " -nonewline -ForegroundColor yellow
+write-host $tz -ForegroundColor red
 
 ##Final warnings
 write-host ""
@@ -77,8 +110,8 @@ write-host "  2. Install Choclatey"
 write-host "  3. Allow Ping through the firewall"
 write-host "  4. Enable RDP Access and allow it through the firewall"
 write-host "  5. Enable PS remote access and allow ANY machine to connect" 
-write-host "  6. "  
-write-host "  7. "  -ForegroundColor red
+write-host "  6. Set the timezone"  
+write-host "  7. "  #-ForegroundColor red
 write-host "  8. " 
 write-host ""
 write-host ""
