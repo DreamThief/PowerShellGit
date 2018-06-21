@@ -1,5 +1,5 @@
 # https://gallery.technet.microsoft.com/scriptcenter/Clean-up-your-C-Drive-bc7bb3ed
-
+# iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/DreamThief/PowerShellGit/master/clean-disk.ps1'))
 Function Cleanup { 
 <# 
 .CREATED BY: 

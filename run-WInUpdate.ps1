@@ -1,3 +1,5 @@
+#iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/DreamThief/PowerShellGit/master/run-WInUpdate.ps1'))
+
 cls
 
 #Define update criteria.
@@ -26,7 +28,7 @@ $Downloader.Updates = $SearchResult
 
 $Downloader.Download()
 
-write-host "Installing the needful" -ForegroundColor Blue
+write-host "Installing the needful" -ForegroundColor green
 
 $Installer = New-Object -ComObject Microsoft.Update.Installer
 
