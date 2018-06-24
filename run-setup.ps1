@@ -153,11 +153,19 @@ write-host ""
 write-host ""
 
 ##Set up the network
-# ! find the eth0 interface index and make it into a variable
+<# ! find the eth0 interface index and make it into a variable
 $netIFI = Get-NetIPConfiguration -InterfaceAlias Ethernet0
 $netifi = $netifi.interfaceindex
 $netifi
-##
+##>
+
+$ethList = Get-NetIPConfiguration
+foreach ($nic in $ethList) {
+    if ($nic.interfaceAlias -eq "Ethernet") {$netIfi = $nic.interfaceindex}
+    elseif ($nic.interfaceAlias -eq "Ethernet0") {$netIfi = $nic.interfaceindex}
+}
+#write-host  "Your alias is $netifi" -ForegroundColor Green
+
 Write-Host "Setting up the network" -ForegroundColor Green
 Disable-NetAdapterBinding -Name "Ethernet0" -ComponentID ms_tcpip6
 New-NetIPAddress -InterfaceIndex $netifi -IPAddress $ipaddr -PrefixLength $subnet -DefaultGateway $gateway
