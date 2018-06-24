@@ -161,13 +161,19 @@ $netifi
 
 $ethList = Get-NetIPConfiguration
 foreach ($nic in $ethList) {
-    if ($nic.interfaceAlias -eq "Ethernet") {$netIfi = $nic.interfaceindex}
-    elseif ($nic.interfaceAlias -eq "Ethernet0") {$netIfi = $nic.interfaceindex}
+    if ($nic.interfaceAlias -eq "Ethernet") {
+            $netIfi = $nic.interfaceindex
+            $nic = "Ethernet"
+        }
+    elseif ($nic.interfaceAlias -eq "Ethernet0") {
+            $netIfi = $nic.interfaceindex
+            $nic = "Ethernet0"
+        }
 }
 #write-host  "Your alias is $netifi" -ForegroundColor Green
 
 Write-Host "Setting up the network" -ForegroundColor Green
-Disable-NetAdapterBinding -Name "Ethernet0" -ComponentID ms_tcpip6
+Disable-NetAdapterBinding -Name $nic -ComponentID ms_tcpip6
 New-NetIPAddress -InterfaceIndex $netifi -IPAddress $ipaddr -PrefixLength $subnet -DefaultGateway $gateway
 Set-DnsClientServerAddress -InterfaceIndex $netifi -ServerAddresses ("$dns", "8.8.8.8")
 Write-Host "Network setup complete" -ForegroundColor Green
