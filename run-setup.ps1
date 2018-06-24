@@ -192,4 +192,13 @@ write-host ""
 # * It is assumed you have already installed the vmwware tools manually.
 # choco install vmware-tools -y
 
+$choice = ""
+while ($choice -notmatch "[y|n]") {
+    $choice = read-host "Do you want to continue? (Y/N)" 
+}
+
+if ($choice -eq "n") {
+    break
+}
+
 shutdown /r /t 5
