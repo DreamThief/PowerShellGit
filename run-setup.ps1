@@ -169,6 +169,14 @@ foreach ($nic in $ethList) {
             $netIfi = $nic.interfaceindex
             $nic = "Ethernet0"
         }
+    elseif ($nic.interfaceAlias -eq "NIC1") {
+            $netIfi = $nic.interfaceindex
+            $nic = "NIC1"
+        }
+    elseif ($nic.interfaceAlias -eq "NIC2") {
+            $netIfi = $nic.interfaceindex
+            $nic = "NIC2"
+        }
 }
 #write-host  "Your alias is $netifi" -ForegroundColor Green
 
