@@ -1,4 +1,4 @@
-## ## iex ((New-Object System.Net.WebClient).DownloadString('http://dreamthief.us/CoreServerSetup03.ps1'))
+## ## iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/DreamThief/PowerShellGit/master/Win10DeCrapifier.ps1'))
 
 #Windows 10 Decrapifier 1803/1809
 #By CSAND
