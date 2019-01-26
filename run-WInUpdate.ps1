@@ -1,4 +1,8 @@
-#iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/DreamThief/PowerShellGit/master/run-WInUpdate.ps1'))
+# iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/DreamThief/PowerShellGit/master/run-WInUpdate.ps1'))
+# 
+# In case you need to sysprep 
+# %WINDIR%\system32\sysprep\sysprep.exe /generalize /shutdown /oobe /mode:vm
+# . $env:systemroot\system32\sysprep\sysprep.exe /generalize /shutdown /oobe /mode:vm
 
 cls
 
